@@ -54,6 +54,15 @@
     <Filter Include="GAME\Scene\GameScene">
       <UniqueIdentifier>{7f15739e-eb98-4d38-8e26-20177eeecfcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\Stage">
+      <UniqueIdentifier>{7fc09bd3-85ad-433d-906c-e7930c12a36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Stage\Stage_1">
+      <UniqueIdentifier>{25bdf387-bf99-4e84-b22c-d6c757383710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Map">
+      <UniqueIdentifier>{fec840a5-7146-48ac-b68b-3332c487bdcb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -149,6 +158,15 @@
     <ClCompile Include="Sound.cpp">
       <Filter>ENGINE\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>GAME\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_1.cpp">
+      <Filter>GAME\Stage\Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>GAME\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -189,6 +207,15 @@
     </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>ENGINE\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>GAME\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_1.h">
+      <Filter>GAME\Stage\Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>GAME\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

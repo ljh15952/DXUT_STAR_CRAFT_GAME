@@ -1,7 +1,6 @@
 #pragma once
-#include "Core.h"
-
-class Sprite;
+#include "Stage_1.h"
+#include "Scene.h"
 class GameScene :
 	public Scene
 {
@@ -9,9 +8,6 @@ public:
 	void Init() override;
 	void Update() override;
 	void OnExit() override;
-
-	Sprite* s;
-	Sprite* s2;
-
+	Stage* stage;
 };
 

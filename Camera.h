@@ -9,10 +9,12 @@ public:
 
 	void SetPos(vector2 v) { camPos.x = v.x, camPos.y = v.y; };
 
+	float _CameraSize;
 private:
 	D3DXMATRIX orthographicMatrix;
 	D3DXMATRIX identityMatrix;
 	D3DXMATRIX viewMatrix;
+
 
 	Node* following;
 	vector2 camPos;

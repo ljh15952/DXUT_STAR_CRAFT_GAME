@@ -24,6 +24,8 @@ public:
 
 	Texture2D* texture;
 
+	vector2 v;
+
 	bool isUI;
 
 	void Draw() override;

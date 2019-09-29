@@ -64,7 +64,7 @@ RECT Sprite::GetRect()
 
 bool Sprite::GoTo(vector2 endpos, float Speed)
 {
-	vector2 v = endpos - _position;
+	v = endpos - _position;
 	float size = sqrt(v.x * v.x + v.y * v.y);
 	if (size < 10)
 		return true;
