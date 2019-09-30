@@ -12,9 +12,8 @@ public:
 	void Collide() override;
 
 	Map* map;
-	Sprite* unit1;
-	Sprite* unit2;
-	Sprite* unit3;
+	
+
 
 	Sprite* s2;
 	Sprite* walls[2];
@@ -25,6 +24,8 @@ public:
 
 	vector<Sprite*> selectUnits;
 	vector<Sprite*> activeUnits;
+
+	D3DXCOLOR xclr2[25000000];
 	//Player
 };
 

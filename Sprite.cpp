@@ -8,6 +8,7 @@ Sprite::Sprite()
 	Timer = 0;
 	NowFrame = 0;
 	isUI = false;
+	v = { 0.1,0.1 };
 }
 
 Sprite::~Sprite()
