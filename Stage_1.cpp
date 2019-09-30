@@ -4,7 +4,7 @@
 Stage_1::Stage_1()
 {
 	map = new Map(L"Stage_1/Map/Stage_1.png");
-
+//	map->_scale = {2,2};
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -71,18 +71,17 @@ Stage_1::~Stage_1()
 
 void Stage_1::Update()
 {
-	static float t = 0.1f;
-	t -= Time::deltaTime;
-	if (t < 0)
+	D3DLOCKED_RECT LockRect;
+
+	map->texture->_texture->LockRect(0, &LockRect, 0, D3DLOCK_DISCARD);
+	DWORD* pColor = (DWORD*)LockRect.pBits;
+
+
+	for (auto it : selectUnits)
 	{
-		D3DLOCKED_RECT LockRect;
-
-		map->texture->_texture->LockRect(0, &LockRect, 0, D3DLOCK_DISCARD);
-		DWORD* pColor = (DWORD*)LockRect.pBits;
-
-		for (int y = activeUnits.front()->_position.y - 300; y < activeUnits.front()->_position.y + 300; y+=2)
+		for (int y = it->_position.y - 300; y < it->_position.y + 300; y += 2)
 		{
-			for (int x = activeUnits.front()->_position.x - 300; x < activeUnits.front()->_position.x + 300; x+=2)
+			for (int x = it->_position.x - 300; x < it->_position.x + 300; x += 2)
 			{
 				int nIdx = y * 5000 + x;
 
@@ -93,12 +92,13 @@ void Stage_1::Update()
 				pColor[nIdx] = xclr;
 			}
 		}
-
-		map->texture->_texture->UnlockRect(0);
-
-		t = 0.1f;
 	}
-	
+
+
+
+	map->texture->_texture->UnlockRect(0);
+
+
 
 
 
@@ -115,6 +115,7 @@ void Stage_1::Update()
 		for (auto it : selectUnits)
 		{
 			it->v = vector2(0.1, 0.1); //select 해제
+			it->_color = { 1,1,1,1 };
 			selectUnits.pop_back();
 		}
 		ex->_position = (Director::GetInstance()->GetMousePos() * Camera::GetInstance()->_CameraSize);
@@ -134,6 +135,7 @@ void Stage_1::Update()
 			RECT rect2;
 			if (IntersectRect(&rect2, &ex->GetRect(), &it->GetRect()))
 			{
+				it->_color = { 0.8,1,0.8,1 };
 				selectUnits.push_back(it);
 			}
 		}
@@ -188,22 +190,19 @@ void Stage_1::Update()
 	{
 		for (auto it : activeUnits)
 		{
-			while (IntersectRect(&rect, &walls[i]->GetRect(), &it->GetRect()))
+			if (IntersectRect(&rect, &walls[i]->GetRect(), &it->GetRect()))
 			{
 				it->_position -= it->v * 10;
 			}
 		}
 	}
 
-
+	//맵 10000x10000으로
 	//카메라 이동제한
-	//선택벡터유닛들 색깔 호로로로
-	//또뭐하지시바
-	//검은색 안개 시스템 이거어케함?ㄹㅇㅋㅋ
 	//미니맵도해야댐;;
+	//이정도만하고 클래스화 하자
 	//유닛 클릭하면 유닛에 대한 자세한 정보
 	//유닛 단체로 선택하면 네모로 뜨기만함 
-	//이정도만하고 클래스화 하자
 
 
 	for (auto it : selectUnits)
@@ -214,9 +213,13 @@ void Stage_1::Update()
 			{
 				while (IntersectRect(&rect, &it->GetRect(), &it2->GetRect()))
 				{
-					if (it->v.x > 0)
+					if (it->v.x > 0 && it->v.y < 0)
+						it2->v = { 1,-1 };
+					else if (it->v.x > 0 && it->v.y > 0)
 						it2->v = { 1,1 };
-					else
+					else if (it->v.x < 0 && it->v.y < 0)
+						it2->v = { -1,-1 };
+					else if (it->v.x < 0 && it->v.y > 0)
 						it2->v = { -1,1 };
 
 					it2->_position += it2->v * 0.01f;
