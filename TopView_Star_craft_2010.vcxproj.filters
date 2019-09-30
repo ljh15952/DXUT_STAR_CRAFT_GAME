@@ -63,6 +63,42 @@
     <Filter Include="GAME\Map">
       <UniqueIdentifier>{fec840a5-7146-48ac-b68b-3332c487bdcb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\OBJ">
+      <UniqueIdentifier>{95c70ab9-6fd4-4437-b523-129c6f0939d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Obj">
+      <UniqueIdentifier>{45733b34-5ae8-482d-896c-204f04ed8af0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units">
+      <UniqueIdentifier>{adc9889d-1847-409c-9bf1-e13c9e9df393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Players">
+      <UniqueIdentifier>{1c8170bc-5a90-40d8-a4fe-63a05d0f7df8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Enemys">
+      <UniqueIdentifier>{0e9d4fad-68b5-46fd-8ddf-1f962d3ec0fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Players\Marine">
+      <UniqueIdentifier>{2b136014-c8f5-4b69-a088-53b9d5e3dc8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Players\Ship">
+      <UniqueIdentifier>{fc1bd214-923b-4ff5-a83f-191b3c5981e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Players\Tank">
+      <UniqueIdentifier>{f626e5e9-14cb-4b87-bacf-8197b6e6a56c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Players\AirCraft">
+      <UniqueIdentifier>{345ad179-10e3-4ea1-9a04-ab6f1db77529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Players\Worker">
+      <UniqueIdentifier>{821c1381-1766-44f6-9564-2359f8bdaea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\Fog">
+      <UniqueIdentifier>{3b4c82b6-9025-4633-9b09-dfc664391a55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\MiniMap">
+      <UniqueIdentifier>{4f6438ae-7af1-4cb0-9f48-e91a16b6ff85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -167,6 +203,21 @@
     <ClCompile Include="Map.cpp">
       <Filter>GAME\Map</Filter>
     </ClCompile>
+    <ClCompile Include="OBJ.cpp">
+      <Filter>GAME\OBJ\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Marine.cpp">
+      <Filter>GAME\OBJ\Units\Players\Marine</Filter>
+    </ClCompile>
+    <ClCompile Include="P_Ship.cpp">
+      <Filter>GAME\OBJ\Units\Players\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Fog.cpp">
+      <Filter>GAME\Fog</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniMap.cpp">
+      <Filter>GAME\MiniMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -216,6 +267,21 @@
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>GAME\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJ.h">
+      <Filter>GAME\OBJ\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Marine.h">
+      <Filter>GAME\OBJ\Units\Players\Marine</Filter>
+    </ClInclude>
+    <ClInclude Include="P_Ship.h">
+      <Filter>GAME\OBJ\Units\Players\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Fog.h">
+      <Filter>GAME\Fog</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniMap.h">
+      <Filter>GAME\MiniMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

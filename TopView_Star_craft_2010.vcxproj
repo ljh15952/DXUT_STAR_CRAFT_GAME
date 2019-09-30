@@ -385,10 +385,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Fog.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Marine.cpp" />
+    <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="OBJ.cpp" />
+    <ClCompile Include="P_Ship.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -398,10 +403,15 @@
     <ClCompile Include="Types.cpp" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Director.h" />
+    <ClInclude Include="Fog.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Marine.h" />
+    <ClInclude Include="MiniMap.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="OBJ.h" />
+    <ClInclude Include="P_Ship.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sound.h" />
