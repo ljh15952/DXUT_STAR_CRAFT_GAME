@@ -385,6 +385,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="E_Marine.cpp" />
     <ClCompile Include="Fog.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Label.cpp" />
@@ -401,8 +402,10 @@
     <ClCompile Include="Stage_1.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Types.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Director.h" />
+    <ClInclude Include="E_Marine.h" />
     <ClInclude Include="Fog.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="Label.h" />
@@ -420,6 +423,7 @@
     <ClInclude Include="Stage_1.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Types.h" />
+    <ClInclude Include="UIManager.h" />
     <None Include="DXUT\Optional\directx.ico" />
     <ClInclude Include="DXUT\Core\DXUT.h" />
     <ClInclude Include="DXUT\Core\DXUTenum.h" />

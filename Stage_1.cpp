@@ -1,6 +1,14 @@
 #include "DXUT.h"
 #include "Stage_1.h"
 
+
+//맵 10000x10000으로
+//카메라 이동제한
+//유닛하나하나 다만들필요는 없을거같은뎅
+//싸우는것만만들고
+//유닛 클릭하면 유닛에 대한 자세한 정보
+//유닛 단체로 선택하면 네모로 뜨기만함 
+
 Stage_1::Stage_1()
 {
 	map = new Map(L"Stage_1/Map/Stage_1.png");
@@ -11,22 +19,19 @@ Stage_1::Stage_1()
 	for (int i = 0; i < 2; i++)
 	{
 		ship[i] = new P_Ship;
-		ship[i]->_position = { 600 + float(100 * i),600 };
+		ship[i]->_position = { 600 + float(300 * i),600 };
 		ship[i]->_scale = { 0.4f,0.4f };
 		ship[i]->_layer = 6;
 		OBJManager::GetInstance()->P_Units.push_back(ship[i]);
 	}
+
+	minimap = new MiniMap;
 
 	s2 = new Sprite;
 	s2->Create(L"a.jpg");
 	s2->_position = { 100,100 };
 	s2->_visible = false;
 	s2->_layer = 7;
-
-	enemy = new Sprite;
-	enemy->Create(L"a.jpg");
-	enemy->_position = { 4000,100 };
-	enemy->_layer = 4;
 
 	ex = new Sprite;
 	ex->Create(L"z.png");
@@ -47,6 +52,7 @@ Stage_1::Stage_1()
 	campos = { 640,360 };
 	Camera::GetInstance()->CameraInit();
 
+	UIManager::GetInstance()->UIManagerInit();
 }
 Stage_1::~Stage_1()
 {
@@ -57,8 +63,10 @@ Stage_1::~Stage_1()
 
 void Stage_1::Update()
 {
-	//exampleMini->_position = { minimap->_position.x - (5000 * minimap->_scale.x) + (activeUnits.front()->_position.x * minimap->_scale.x) +240, (activeUnits.front()->_position.y * minimap-> _scale.y) +470  };
+	Camera::GetInstance()->SetPos(campos);
+	Camera::GetInstance()->Update();
 
+	//안개 업데이트
 	static float t = 0.3f;
 	t -= Time::deltaTime;
 	if (t < 0)
@@ -66,19 +74,9 @@ void Stage_1::Update()
 		fog->SetFog(OBJManager::GetInstance()->P_Units);
 		t = 0.3;
 	}
+	//
 
-
-
-
-
-
-
-
-
-
-
-	Camera::GetInstance()->SetPos(campos);
-	Camera::GetInstance()->Update();
+	//마우스 관련
 	if (Director::GetInstance()->onMouseDown())
 	{
 		for (auto it : OBJManager::GetInstance()->P_Select_Units)
@@ -111,10 +109,26 @@ void Stage_1::Update()
 		ex->_scale = { 0.0001f,0.0001f };
 
 	}
+	//
 
+	//색깔 반짝반짝하는거
+	for (auto it : OBJManager::GetInstance()->P_Select_Units)
+	{
+		if (it->_color.r < 0)
+			it->_colorbool = !it->_colorbool;
+		else if (it->_color.r > 1)
+			it->_colorbool = !it->_colorbool; 
 
-
-
+		if (it->_colorbool)
+		{
+			it->_color.r -= 0.05f;
+		}
+		else if (!it->_colorbool)
+		{
+			it->_color.r += 0.05f;
+		}
+	}
+	//
 
 	if (DXUTIsKeyDown('A'))
 	{
@@ -122,20 +136,22 @@ void Stage_1::Update()
 		s2->_position = (Director::GetInstance()->GetMousePos() * Camera::GetInstance()->_CameraSize);
 		s2->_position -= {640 * Camera::GetInstance()->_CameraSize - campos.x, 360 * Camera::GetInstance()->_CameraSize - campos.y};
 
+		for (auto it : OBJManager::GetInstance()->P_Select_Units)
+		{
+			it->_movePos = s2->_position;
+			it->_currentState = t_move;
+		}
 	}
 	if (DXUTIsKeyDown('S'))
 	{
 		s2->_visible = false;
-	}
-	//s2는 깃발 같은걸로 
-	if (s2->_visible)
-	{
 		for (auto it : OBJManager::GetInstance()->P_Select_Units)
 		{
-			if (it->GoTo(s2->_position, 300))
-				s2->_visible = false;
+			it->_currentState = t_atk;
 		}
 	}
+	//s2는 깃발 같은걸로 
+		
 
 
 	if (Director::GetInstance()->GetMousePos().x > 1150)
@@ -154,6 +170,15 @@ void Stage_1::Update()
 	{
 		campos.y -= 50;
 	}
+
+
+
+
+	Collide();
+}
+
+void Stage_1::Collide()
+{
 	RECT rect;
 	for (int i = 0; i < 2; i++)
 	{
@@ -166,12 +191,6 @@ void Stage_1::Update()
 		}
 	}
 
-	//맵 10000x10000으로
-	//10000x10000크기의 빈 이미지 를 fog로해서 적같은것들 레이어 낮춰서 포그 알파갑도 줄여서 하기
-	//카메라 이동제한
-	//이정도만하고 클래스화 하자
-	//유닛 클릭하면 유닛에 대한 자세한 정보
-	//유닛 단체로 선택하면 네모로 뜨기만함 
 
 
 	for (auto it : OBJManager::GetInstance()->P_Select_Units)
@@ -196,12 +215,4 @@ void Stage_1::Update()
 			}
 		}
 	}
-
-
-	Collide();
-}
-
-void Stage_1::Collide()
-{
-
 }

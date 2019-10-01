@@ -6,8 +6,10 @@ class Marine :
 public:
 	Marine();
 	~Marine();
-	void isHit() override;
 	void Update() override;
+	void isHit() override;
 	void Attack() override;
+	void Movement() override;
+	void idle() override;
 };
 

@@ -56,7 +56,10 @@ void Fog::SetFog(vector<OBJ*> units)
 				if (d <= 500)
 				{
 					int nIdx = i * 5000 + j;
-
+					if (nIdx >= 25000000 || nIdx <= 0)
+					{
+						return;
+					}
 					D3DXCOLOR xclr = pColor[nIdx];
 					if (xclr.a > 0)
 					{

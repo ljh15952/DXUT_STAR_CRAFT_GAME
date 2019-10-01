@@ -4,6 +4,8 @@
 #include "Camera.h"
 #include "P_Ship.h"
 #include "Fog.h"
+#include "MiniMap.h"
+#include "UIManager.h"
 class Stage_1 :
 	public Stage
 {
@@ -15,7 +17,7 @@ public:
 
 	Map* map;
 	Fog* fog;
-
+	MiniMap* minimap;
 	P_Ship* ship[2];
 
 	Sprite* s2;
@@ -23,13 +25,5 @@ public:
 
 	Sprite* ex;
 
-	Sprite* enemy;
-
-
-
 	vector2 campos;
-
-	D3DXCOLOR xclr2[25000000];
-	//Player
 };
-

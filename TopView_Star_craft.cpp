@@ -61,7 +61,9 @@ void CALLBACK OnMouse(bool bLeftButtonDown, bool bRightButtonDown, bool bMiddleB
 		Director::GetInstance()->Clicknum = 3;
 	}
 
-	if (0<nMouseWheelDelta)
+	
+
+	if (0<nMouseWheelDelta) //ÀÌ°Å–E²¨ÀÓ
 	{
 		if (Camera::GetInstance()->_CameraSize > 3)
 			Camera::GetInstance()->_CameraSize += -0.3f;

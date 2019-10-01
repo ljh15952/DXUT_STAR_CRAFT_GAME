@@ -99,6 +99,12 @@
     <Filter Include="GAME\MiniMap">
       <UniqueIdentifier>{4f6438ae-7af1-4cb0-9f48-e91a16b6ff85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GAME\UI">
+      <UniqueIdentifier>{4ba1610d-e7b2-4c93-909d-e0c375532361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME\OBJ\Units\Enemys\E_Marine">
+      <UniqueIdentifier>{3e4691d7-6daf-46c8-8c3b-71f62395de32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -218,6 +224,12 @@
     <ClCompile Include="MiniMap.cpp">
       <Filter>GAME\MiniMap</Filter>
     </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>GAME\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="E_Marine.cpp">
+      <Filter>GAME\OBJ\Units\Enemys\E_Marine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -282,6 +294,12 @@
     </ClInclude>
     <ClInclude Include="MiniMap.h">
       <Filter>GAME\MiniMap</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>GAME\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="E_Marine.h">
+      <Filter>GAME\OBJ\Units\Enemys\E_Marine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

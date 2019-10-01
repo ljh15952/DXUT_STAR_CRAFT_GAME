@@ -22,6 +22,8 @@ public:
 
 	bool GoTo(vector2 endpos, float Speed);
 
+	float GetDistance(Sprite* target);
+
 	Texture2D* texture;
 
 	vector2 v;

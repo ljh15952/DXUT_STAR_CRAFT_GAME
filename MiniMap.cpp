@@ -25,6 +25,11 @@ MiniMap::~MiniMap()
 
 void MiniMap::Update()
 {
+	for (auto it : OBJManager::GetInstance()->P_Units)
+	{
+		it->_MiniSp->_position = { _position.x - (5000 * _scale.x) + (it->_position.x * _scale.x) + 240, (it->_position.y * _scale.y) + 470 };
+		it->_MiniSp->_rotation = it->_rotation;
+	}
 }
 
 void MiniMap::SetMiniMap()

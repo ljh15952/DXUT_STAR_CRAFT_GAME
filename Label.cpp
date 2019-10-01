@@ -11,6 +11,7 @@ void Label::Create_Label(int num)
 		Sprite* s = new Sprite;
 		s->_scale = _scale;
 		s->isUI = true;
+		s->_layer = _layer;
 		s->Create(L"font/" + to_wstring(it - 48) + L".png");
 		s->_position = { AddPos * s->_scale.x + _position.x,_position.y };
 		AddPos += 30;

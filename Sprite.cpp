@@ -67,7 +67,7 @@ bool Sprite::GoTo(vector2 endpos, float Speed)
 {
 	v = endpos - _position;
 	float size = sqrt(v.x * v.x + v.y * v.y);
-	if (size < 10)
+	if (size < 50)
 		return true;
 	v.x /= size;
 	v.y /= size;
@@ -75,6 +75,12 @@ bool Sprite::GoTo(vector2 endpos, float Speed)
 
 	_position += v * Speed * Time::deltaTime;
 	return false;
+}
+
+float Sprite::GetDistance(Sprite* target)
+{
+	vector2 v = target->_position - _position;
+	return sqrt(v.x * v.x + v.y * v.y);
 }
 
 void Sprite::Draw()

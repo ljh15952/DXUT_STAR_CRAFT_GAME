@@ -20,3 +20,12 @@ void Marine::Update()
 void Marine::Attack()
 {
 }
+
+void Marine::Movement()
+{
+}
+
+void Marine::idle()
+{
+}
+
