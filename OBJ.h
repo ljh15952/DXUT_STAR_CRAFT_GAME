@@ -26,6 +26,7 @@ public:
 	wstring _AtkAnimationPath; 
 	wstring _EftAnimationPath;
 
+
 	bool _colorbool;
 
 	Sprite* _MiniSp;

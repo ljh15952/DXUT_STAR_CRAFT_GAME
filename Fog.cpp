@@ -5,7 +5,7 @@ Fog::Fog()
 {
 	Create(L"Stage_1/Map/fog.png");
 	_pivot = { 0,0 };
-	_layer = 5;
+	_layer = 2;
 
 	SetFog();
 }

@@ -18,7 +18,7 @@ public:
 	Map* map;
 	Fog* fog;
 	MiniMap* minimap;
-	P_Ship* ship[2];
+
 
 	Sprite* s2;
 	Sprite* walls[2];

@@ -83,6 +83,15 @@ float Sprite::GetDistance(Sprite* target)
 	return sqrt(v.x * v.x + v.y * v.y);
 }
 
+void Sprite::lookAt(Sprite* target)
+{
+	v = target->_position - _position;
+	float size = sqrt(v.x * v.x + v.y * v.y);
+	v.x /= size;
+	v.y /= size;
+	_rotation = atan2(v.y, v.x);
+}
+
 void Sprite::Draw()
 {
 	if (!_visible)

@@ -1,7 +1,7 @@
 #include "DXUT.h"
 #include "Stage_1.h"
-
-
+#include "Marine.h"
+#include "E_Marine.h"
 //맵 10000x10000으로
 //카메라 이동제한
 //유닛하나하나 다만들필요는 없을거같은뎅
@@ -18,11 +18,29 @@ Stage_1::Stage_1()
 
 	for (int i = 0; i < 2; i++)
 	{
-		ship[i] = new P_Ship;
-		ship[i]->_position = { 600 + float(300 * i),600 };
-		ship[i]->_scale = { 0.4f,0.4f };
-		ship[i]->_layer = 6;
-		OBJManager::GetInstance()->P_Units.push_back(ship[i]);
+		P_Ship* s = new P_Ship;
+		s->_position = { 600 + float(300 * i),600 };
+		s->_scale = { 0.4f,0.4f };
+		s->_layer = 6;
+		OBJManager::GetInstance()->P_Units.push_back(s);
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		Marine* s = new Marine;
+		s->_position = { 600 + float(150 * i),1400 };
+		s->_scale = { 0.2f,0.2f };
+		s->_layer = 6;
+		OBJManager::GetInstance()->P_Units.push_back(s);
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		E_Marine* s = new E_Marine;
+		s->_position = { 4000 + float(150 * i),1400 };
+		s->_scale = { 0.2f,0.2f };
+		s->_layer = 1;
+		OBJManager::GetInstance()->E_Units.push_back(s);
 	}
 
 	minimap = new MiniMap;

@@ -11,5 +11,7 @@ public:
 	void Attack() override;
 	void Movement() override;
 	void idle() override;
+
+	bool isatk;
 };
 

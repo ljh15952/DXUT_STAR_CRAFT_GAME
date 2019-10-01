@@ -23,6 +23,8 @@ public:
 	bool GoTo(vector2 endpos, float Speed);
 
 	float GetDistance(Sprite* target);
+	void lookAt(Sprite* target);
+
 
 	Texture2D* texture;
 
