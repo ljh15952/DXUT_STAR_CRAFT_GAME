@@ -3,7 +3,6 @@
 
 void Renderer::Render()
 {
-	_rendertargets.sort(Comp);
 	for (auto it : _rendertargets)
 	{
 		it->Draw();
@@ -21,6 +20,7 @@ void Renderer::AddRenderTarget(Node* node)
 	if (find(_rendertargets.begin(), _rendertargets.end(), node) != _rendertargets.end())
 		return;
 	_rendertargets.push_back(node);
+	_rendertargets.sort(Comp);
 }
 
 bool Renderer::Comp(Node* a, Node* b)

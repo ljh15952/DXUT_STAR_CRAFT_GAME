@@ -18,7 +18,7 @@ Marine::Marine()
 	_AtkAnimationPath = L"";
 	_EftAnimationPath = L"";
 	_colorbool = false;
-	_atkDelay = 1.5f;
+	_atkDelay = 0.5f;
 
 	_MiniSp = new Sprite;
 	_MiniSp->Create(L"Units/P/Marine/Idle/i1.png");
@@ -38,6 +38,7 @@ Marine::~Marine()
 void Marine::isHit()
 {
 	cout << "P_MARINE GET HIT!!! " << _Hp <<" "<< _FullHp << endl;
+	_currentState = t_atk;
 	if (_Hp < 0)
 	{
 		_visible = false;
@@ -65,7 +66,7 @@ void Marine::Attack()
 	if (isatk)
 	{
 		lookAt(AttackObj);
-		if (Animation(L"Units/P/Marine/Attack/a", 14, 0.05f, 3))
+		if (Animation(L"Units/P/Marine/Attack/a", 14, 0.03f, 3))
 		{
 			AttackObj->_Hp -= _Damage;
 			AttackObj->isHit();
@@ -75,7 +76,7 @@ void Marine::Attack()
 	}
 
 	for (auto it : OBJManager::GetInstance()->E_Units)
-	{
+	{ 
 		if (it->_visible)
 		{
 			if (GetDistance(it) < _range)

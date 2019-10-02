@@ -55,7 +55,7 @@ bool Sprite::Animation(wstring path, int frame, float delay, int aninum)
 RECT Sprite::GetRect()
 {
 	RECT r = { 0,0,0,0 };
-	r.right = _position.x + texture->_info.Width / 2 * _scale.x;
+	r.right = _position.x + ((texture->_info.Width / 2) * _scale.x);
 	r.left = _position.x - texture->_info.Width / 2 * _scale.x;
 	r.top = _position.y - texture->_info.Height / 2 * _scale.y;
 	r.bottom = _position.y + texture->_info.Height / 2 * _scale.y;
@@ -86,9 +86,9 @@ float Sprite::GetDistance(Sprite* target)
 void Sprite::lookAt(Sprite* target)
 {
 	v = target->_position - _position;
-	float size = sqrt(v.x * v.x + v.y * v.y);
-	v.x /= size;
-	v.y /= size;
+//	float size = sqrt(v.x * v.x + v.y * v.y);
+//	v.x /= size;
+//	v.y /= size;
 	_rotation = atan2(v.y, v.x);
 }
 

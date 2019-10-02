@@ -15,8 +15,6 @@ private:
 	D3DXMATRIX identityMatrix;
 	D3DXMATRIX viewMatrix;
 
-
-	Node* following;
 	vector2 camPos;
 };
 
